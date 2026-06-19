@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./assets/css/academic.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="icon" href="#">
@@ -36,23 +35,33 @@
             <div class="column has-text-centered">
               <div class="publication-links">
 
-                <!-- Challenge. -->
+                <!-- Overview. -->
                 <span class="link-block">
-                  <a href="#challenge" class="external-link button is-normal is-rounded is-link">
+                  <a href="#overview" class="external-link button is-normal is-rounded is-link">
                     <span class="icon">
-                      <i class="fas fa-trophy icon"></i>
+                      <i class="fas fa-play-circle icon"></i>
                     </span>
-                    <span>Challenge</span>
+                    <span>Overview</span>
                   </a>
                 </span>
 
-                <!-- Speakers. -->
+                <!-- Objectives. -->
                 <span class="link-block">
-                  <a href="#speakers" class="external-link button is-normal is-rounded is-danger">
+                  <a href="#objectives" class="external-link button is-normal is-rounded is-danger">
                     <span class="icon">
-                      <i class="fas fa-users icon"></i>
+                      <i class="fas fa-check-circle icon"></i>
                     </span>
-                    <span>Speakers</span>
+                    <span>Objectives</span>
+                  </a>
+                </span>
+
+                <!-- Format. -->
+                <span class="link-block">
+                  <a href="#format" class="external-link button is-normal is-rounded is-primary">
+                    <span class="icon">
+                      <i class="fas fa-laptop-code icon"></i>
+                    </span>
+                    <span>Format</span>
                   </a>
                 </span>
 
@@ -63,6 +72,26 @@
                       <i class="far fa-calendar-alt icon"></i>
                     </span>
                     <span>Schedule</span>
+                  </a>
+                </span>
+
+                <!-- Instructors. -->
+                <span class="link-block">
+                  <a href="#instructors" class="external-link button is-normal is-rounded is-danger">
+                    <span class="icon">
+                      <i class="fas fa-chalkboard-teacher icon"></i>
+                    </span>
+                    <span>Instructors</span>
+                  </a>
+                </span>
+
+                <!-- Materials. -->
+                <span class="link-block">
+                  <a href="#materials" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-folder-open icon"></i>
+                    </span>
+                    <span>Materials</span>
                   </a>
                 </span>
 
@@ -94,7 +123,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section id="overview" class="section">
     <div class="container is-max-desktop">
       <!-- Overview. -->
       <div class="columns is-centered has-text-centered">
@@ -102,34 +131,34 @@
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p>
-              Human demonstrations are becoming a central source of data for robot learning. They offer a path
-              toward robots that learn from rich, diverse human experience rather than only from robot-specific
-              datasets. Yet observing humans is not the same as learning robot behavior.
+              Robot learning needs more scalable ways to turn real-world experience into usable training data.
+              Video offers an abundant record of human-object interaction, task structure, and physical context,
+              but it is usually unstructured and difficult to connect to simulation or policy learning.
             </p>
             <p>
-              Human demonstrations now come from internet videos, egocentric recordings, motion capture,
-              teleoperation, wearable devices, kinesthetic teaching, VR/AR interfaces, simulation retargeting,
-              and real-to-sim-to-real pipelines. These sources vary in embodiment, viewpoint, observability,
-              physical fidelity, action labels, contact information, task structure, and scale. The field still
-              lacks agreement on when such data is useful, what should be extracted from it, and how its value
-              should be measured. This workshop asks one focused question:
+              <b>From Human Videos to Dexterous Robot Capability</b> is a half-day, hands-on CoRL 2026 tutorial
+              on converting unconstrained human-object videos into validated robot-training data. The tutorial
+              motivates Video to Data as a practical bridge from raw demonstrations to actionable robot learning
+              assets, showing how modern vision-language models, reconstruction tools, and robotic grounding can
+              help convert everyday video into structured data for learning generalizable robot skills.
             </p>
             <p class="has-text-centered title is-4" style="margin: 1.5rem 0;">
-              How can robots learn reliably from human demonstrations?
+              How can raw human video become robot-usable data?
             </p>
             <p>
-              This question cuts across direct video-to-policy learning, goal and reward inference, affordance
-              learning, world modeling, real2sim2real reconstruction, simulation grounding, embodied foundation
-              models, and more. Across these approaches, the central challenge is the same: human demonstrations
-              are not automatically robot data. Robots need some form of conversion, grounding, or evaluation
-              before human data becomes useful learning signal.
+              We teach the pipeline as a sequence of validation gates: queryable video segments, plausible
+              reconstructions, simulation-ready task assets, retargeted motions, and policy-training artifacts.
+              Participants will leave with runnable scripts or notebooks, precomputed artifacts, and an adaptation
+              checklist for deciding whether their own video data is ready for robot learning.
             </p>
-            <p>
-              This workshop provides a focused venue to define the bottlenecks, compare assumptions, and produce
-              shared evaluation criteria and near-term research directions. The workshop is designed as a working
-              session, not a sequence of talks &mdash; built around a shared <b>Video-to-Data Challenge</b>,
-              interactive failure-board and breakout sessions, and a collaboratively written post-workshop
-              whitepaper.
+            <figure class="pipeline-figure">
+              <img src="assets/images/v2d_pipeline_overview.png" alt="Video to Data pipeline overview">
+            </figure>
+            <p class="has-text-centered">
+              Tutorial repository:
+              <a href="https://github.com/nvidia-isaac/video_to_data/tree/main" target="_blank">
+                github.com/nvidia-isaac/video_to_data
+              </a>
             </p>
           </div>
         </div>
@@ -138,61 +167,63 @@
     </div>
   </section>
 
-  <section id="challenge" class="section">
+  <section id="objectives" class="section">
     <div class="container is-max-desktop">
-      <!-- Challenge. -->
+      <!-- Objectives. -->
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <h2 class="title is-3">The Video-to-Data Challenge</h2>
+          <h2 class="title is-3">Learning Objectives</h2>
           <div class="content has-text-justified">
-            <p>
-              We instantiate the broad question of learning from human demos through the <b>Video-to-Data
-              Challenge</b> and a corresponding baseline. To enable a variety of approaches, our baseline provides
-              an end-to-end pipeline for ingesting long human videos, providing scene and hand reconstruction,
-              retargeting hands to robot-compatible schemas, and training and evaluating policies in
-              <a href="https://developer.nvidia.com/isaac/lab" target="_blank">Isaac Lab</a>. This baseline is
-              intended to enable the community to investigate a variety of research questions relating to learning
-              from human videos.
-            </p>
-            <p>
-              In addition to talks, the challenge enables participants to compare assumptions, metrics, and failure
-              modes in a common setting. Winning teams will present concise walkthroughs of what worked, what
-              failed, and what the next challenge should measure.
-            </p>
-            <div class="has-text-danger bold has-text-centered"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Challenge details, baseline repository, and leaderboard coming soon.</div>
-          </div>
-        </div>
-      </div>
-      <!--/ Challenge. -->
-    </div>
-  </section>
-
-  <section id="research-questions" class="section">
-    <div class="container is-max-desktop">
-      <!-- Research Questions. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Research Questions</h2>
-          <div class="content has-text-justified">
-            <p>The workshop targets bottlenecks that prevent human demonstrations from becoming useful robot
-              learning signal. Some examples:</p>
+            <p>By the end of the tutorial, participants will be able to:</p>
             <ul>
-              <li><b>Demonstration usefulness:</b> what properties of human demonstrations predict downstream robot
-                improvement, and when does more data help?</li>
-              <li><b>Representations for learning:</b> should methods extract rewards, task graphs, scene models,
-                robot motions, simulated episodes, or policies directly?</li>
-              <li><b>Grounding and control:</b> when are reconstruction, simulation, real2sim2real, or world
-                modeling necessary for feasible robot behavior?</li>
-              <li><b>Intent and embodiment:</b> how can robots infer goals, constraints, contacts, affordances, and
-                object states from humans with different bodies?</li>
-              <li><b>Evaluation and standards:</b> what benchmarks, metrics, schemas, and failure taxonomies let the
-                field compare approaches on common ground, especially as data sources vary (e.g., UMI-style data,
-                human video)?</li>
+              <li><b>Make video queryable:</b> segment long videos, build entity graphs, store frame embeddings, and
+                retrieve task-relevant clips with natural-language queries.</li>
+              <li><b>Inspect reconstructions:</b> evaluate depth, object masks, meshes, hand/body reconstructions,
+                6D object poses, and temporal alignment for geometric plausibility.</li>
+              <li><b>Convert to robot-facing data:</b> map reconstructed interactions into motion files, object
+                assets, URDF/USD paths, support surfaces, contact fields, and quality checks.</li>
+              <li><b>Connect to dexterous policy learning:</b> run or inspect a small
+                <a href="https://developer.nvidia.com/isaac/lab" target="_blank">Isaac Lab</a> training/evaluation
+                example and understand how tracking, contact rewards, and rollouts use demonstration-derived data.</li>
+              <li><b>Diagnose failure modes:</b> identify poor video quality, mask errors, mesh-scale mistakes,
+                drifting poses, invalid retargeting, infeasible support geometry, and weak contact grounding.</li>
             </ul>
           </div>
         </div>
       </div>
-      <!--/ Research Questions. -->
+      <!--/ Objectives. -->
+    </div>
+  </section>
+
+  <section id="format" class="section">
+    <div class="container is-max-desktop">
+      <!-- Format. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Hands-on Format</h2>
+          <div class="content has-text-justified">
+            <p>
+              The tutorial is a guided coding session: short conceptual introductions followed by runnable
+              exercises. Because full reconstruction and policy training can require GPUs, every exercise has three
+              paths: laptop-only inspection, optional live GPU execution, and precomputed artifacts so every attendee
+              can complete the objectives.
+            </p>
+            <ul>
+              <li><b>Code-first pacing:</b> each module begins with a brief explanation, then moves quickly to an
+                exercise.</li>
+              <li><b>Paired debugging:</b> participants compare retrieved clips, overlays, pose tracks,
+                motion-schema fields, and simulation rollouts.</li>
+              <li><b>Validity decisions:</b> groups classify outputs as ready, questionable, or unsuitable for robot
+                learning.</li>
+              <li><b>Live demos:</b> instructors run selected reconstruction overlays and a short Isaac Lab
+                dexterity run.</li>
+              <li><b>Exercise checkpoints:</b> each exercise produces a visible artifact such as a JSONL clip list,
+                retrieved clip, mesh/pose overlay, retargeted motion file, scene viewer, or policy rollout.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Format. -->
     </div>
   </section>
 
@@ -203,7 +234,7 @@
         <div class="column">
           <h2 class="title is-3">Tentative Schedule</h2>
           <div class="content center has-text-justified">
-            <div class="has-text-centered" style="margin-bottom: 1rem;">Half-day workshop (4 hours). Times shown are relative to the workshop start.</div>
+            <div class="has-text-centered" style="margin-bottom: 1rem;">Half-day tutorial, 2:00&ndash;6:00 PM. Times are tentative and may be adjusted after acceptance.</div>
             <div class="table-container">
               <table id="schedule-table" class="table">
                 <tbody id="schedule-table-body">
@@ -215,35 +246,36 @@
       </div>
   </section>
 
-  <section id="speakers" class="section">
-    <!-- Speakers. -->
+  <section id="instructors" class="section">
+    <!-- Instructors. -->
     <div class="container is-max-desktop">
-      <h2 class="center title is-3">Invited Speakers</h2>
-      <p class="has-text-centered content">Each invited speaker gives a short keynote on one approach to learning
-        from human demonstrations, participates in the panel discussion, and contributes a written position
-        statement to the post-workshop artifact.</p>
+      <h2 class="center title is-3">Tutorial Instructors</h2>
+      <p class="has-text-centered content">Each instructor owns a distinct pipeline stage and will support the
+        hands-on exercises, artifact clinics, and debugging sessions.</p>
       <div id="talk-content1" class="columns is-centered"></div>
       <div id="talk-content2" class="columns is-centered"></div>
-      <!--/ Speakers. -->
+      <!--/ Instructors. -->
   </section>
 
-  <section id="call-for-papers" class="section">
+  <section id="materials" class="section">
     <div class="container is-max-desktop">
-      <h2 class="center title is-3">Call for Contributions</h2>
+      <h2 class="center title is-3">Participant Materials</h2>
       <div class="content has-text-justified">
-        <p>We solicit contributions across the following formats:</p>
+        <p>
+          Materials will be public and designed to be useful even for participants who do not use NVIDIA
+          infrastructure after the event. The post-tutorial artifact will include:
+        </p>
         <ul>
-          <li><b>Full papers (4&ndash;8 pages):</b> preliminary results, datasets, benchmark proposals, and negative
-            results. Unlimited pages for references and appendices.</li>
-          <li><b>Position papers &amp; extended abstracts (2 pages):</b> to facilitate discussion and surface new
-            opinions in the field.</li>
+          <li>Setup instructions and a lightweight laptop inspection path.</li>
+          <li>Runnable scripts or notebooks for each exercise.</li>
+          <li>Sample videos, precomputed outputs, and annotated result folders.</li>
+          <li>Isaac Lab configs, troubleshooting notes, and example policy rollouts.</li>
+          <li>A video-to-robot-data validation checklist for adapting the workflow to new data.</li>
         </ul>
         <p>
-          We encourage work that is new, preliminary, or in progress. We discourage papers already accepted to the
-          main CoRL 2026 program unless the submission is clearly reframed as a workshop position, dataset,
-          benchmark, challenge submission, or failure analysis.
+          We will encourage participants to bring their own data questions and use the final guided extension to
+          decide whether their videos are ready, need preprocessing, or need additional sensing or annotation.
         </p>
-        <div class="has-text-danger bold has-text-centered"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Submission portal and deadlines coming soon.</div>
       </div>
   </section>
 
@@ -263,11 +295,13 @@
         <div class="column">
           <h2 class="title is-3">Contact</h2>
           <div class="content center has-text-justified">
-            Please feel free to send us your queries. The primary contacts for the workshop are <a
+            Please feel free to send us your questions. The primary contact for the tutorial is <a
+              href="mailto:xinghaoz@nvidia.com">Xinghao Zhu</a> (<a
+              href="mailto:xinghaoz@nvidia.com">xinghaoz@nvidia.com</a>). You can also reach <a
               href="mailto:aanwar@nvidia.com">Abrar Anwar</a> (<a
               href="mailto:aanwar@nvidia.com">aanwar@nvidia.com</a>) and <a
-              href="mailto:xinghaoz@nvidia.com">Xinghao Zhu</a> (<a
-              href="mailto:xinghaoz@nvidia.com">xinghaoz@nvidia.com</a>).
+              href="mailto:yachang@nvidia.com">Yan Chang</a> (<a
+              href="mailto:yachang@nvidia.com">yachang@nvidia.com</a>).
           </div>
         </div>
       </div>

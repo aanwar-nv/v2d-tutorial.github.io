@@ -7,14 +7,17 @@ function populate_people_html(html_id, details, row_split_idx){
     let content_html = ``
     for(var i=0; i<details.length; i++) {
       let detail = details[i]
+      let person_name = detail[4] ? `<a href="${detail[4]}" target="_blank" rel="noopener noreferrer">${detail[0]}</a>` : `<span>${detail[0]}</span>`
+      let person_note = detail[5] ? `<div class="person-note">${detail[5]}</div>` : ``
       content_html += `
       <div class="column is-variable is-max-desktop">
         <div class="center">
           <img class="display-image center" src="${detail[1]}">
           <div> 
-            <a href="${detail[4]}" target="_blank">${detail[0]}</a> <br>
+            ${person_name} <br>
             ${detail[2] ? `${detail[2]} <br>` : ``}
             ${detail[3]}
+            ${person_note}
           </div>
         </div>
       </div>`
@@ -87,8 +90,9 @@ function animate_hidden_content(hidden_content){
 }
 
 $(document).ready(function () {
-  $('#meta-desc').attr('content', `Web home for ${project_name} @ ${conference_details[0]}`);
-  $('#title').html(project_name);
+  const plain_project_name = project_name.replace(/<br\s*\/?>/gi, ' ')
+  $('#meta-desc').attr('content', `Web home for ${plain_project_name} @ ${conference_details[0]}`);
+  $('#title').html(plain_project_name);
   $('#project-name').html(`${proj_small_caps}${project_name}`)
   let conference_logo_html = conference_details[3] ? `<img src="${conference_details[3]}" width="300px" height="300px">` : `<h2 class="title is-2" style="margin-bottom: 0.5rem;">${conference_details[0]}</h2>`
   $('#conference-details').html(`
@@ -100,7 +104,7 @@ $(document).ready(function () {
   $('#workshop-date').html(workshop_date)
 
   // talk content
-  talk_content = Object.values(talk_speaker_details)
+  const talk_content = Object.values(talk_speaker_details)
   populate_people_html('talk-content1', talk_content.slice(0, 4))
   populate_people_html('talk-content2', talk_content.slice(4, ))
 
@@ -153,6 +157,9 @@ $(document).ready(function () {
         icon_html = `<i class="fas fa-coffee icon" style="position: relative;top: 5px; margin-left:5px"></i>`
       }
     effect = `notification is-warning is-light`
+    }
+    if(schedule_entry[0] == 'exercise'){
+      icon_html = `<i class="fas fa-laptop-code icon" style="position: relative;top: 5px; margin-left:5px"></i>`
     }
     schedule_html += `
       <tr class="${effect}">
